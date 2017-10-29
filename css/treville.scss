@@ -1,0 +1,58 @@
+---
+---
+
+@import url('https://fonts.googleapis.com/css?family=Jim+Nightshade');
+
+.logo-text {
+  text-transform: initial;
+  font-family: 'Jim Nightshade', cursive;
+  font-weight: normal;
+  font-size: 2em;
+}
+
+.logo-border {
+  padding: 0.35em 1em;
+  border-width: 1.5px 0;
+  border-style: solid;
+}
+
+.logo-pseudo {
+  display: inline-block;
+  text-transform: initial;
+  font-family: 'Jim Nightshade', cursive;
+  font-weight: normal;
+  padding: 0.35em 1em;
+  line-height: 1.75em;
+
+  -moz-transform: scale(1);
+  -webkit-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+
+.logo-pseudo::before, .logo-pseudo::after {
+  background: black;
+  content: '';
+  display: block;
+  position: absolute;
+  height: 2px;
+  width: 100%;
+}
+
+.logo-animate {
+  -moz-transition: -moz-transform 0.5s ease, opacity 0.5s ease;
+  -webkit-transition: -webkit-transform 0.5s ease, opacity 0.5s ease;
+  -ms-transition: -ms-transform 0.5s ease, opacity 0.5s ease;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+.logo-animate::before, .logo-animate::after {
+  -moz-transition: width 0.85s ease;
+  -webkit-transition: width 0.85s ease;
+  -ms-transition: width 0.85s ease;
+  transition: width 0.85s ease;
+  -moz-transition-delay: 0.25s;
+  -webkit-transition-delay: 0.25s;
+  -ms-transition-delay: 0.25s;
+  transition-delay: 0.25s;
+}

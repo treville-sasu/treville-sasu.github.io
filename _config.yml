@@ -4,10 +4,9 @@
 # Site settings
 title: Tréville
 description: |
-  Assistance à maitre d'ouvrage,
-  Promotion immobilière
+  Assistant maitre d'ouvrage
 owner: Tréville # or company name
-first_published: 2017 # if migrating another site, the year of your first publish
+# first_published: 2017 # if migrating another site, the year of your first publish
 email: contact@treville.fr
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://www.treville.fr" # the base hostname & protocol for your site
