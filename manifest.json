@@ -1,0 +1,28 @@
+{
+  "lang": "fr",
+  "dir": "ltr",
+  "name": "Tréville.fr",
+  "description": "Toute l'information de Tréville SASU",
+  "short_name": "Tréville",
+  "start_url": "/index.html",
+  "icons": [{
+    "src": "images/treville-icone-144.png",
+    "sizes": "144x144",
+    "type": "image/png"
+  },
+  {
+    "src": "images/treville-icone-512.png",
+    "sizes": "512x512",
+    "type": "image/png"
+  }],
+  "theme_color": "#2e3842",
+  "background_color": "#2e3842",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/",
+  "serviceworker": {
+    "src": "sw.js",
+    "scope": "/",
+    "use_cache": false
+  }
+}
