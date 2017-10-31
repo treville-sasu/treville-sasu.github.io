@@ -21,6 +21,7 @@
   text-transform: initial;
   font-family: 'Jim Nightshade', cursive;
   font-weight: normal;
+  letter-spacing: .225em;
 }
 
 .logo-border {

@@ -11,12 +11,12 @@ email: contact@treville.fr
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "http://www.treville.fr" # the base hostname & protocol for your site
 social:
+  email: '#cta'
   # twitter: https://twitter.com/<username>
   github: https://github.com/treville-sasu
-  linkedin-square: https://linkedin.com/in/mabrenac
+  linkedin-square: https://www.linkedin.com/in/marc-antoine-brenac-1b964a48/
   # facebook-official: https://facebook.com/<username>
   # google-plus-square: https://plus.google.com/u/0/+<username>
-  #email: /contact/
   #flickr:
   #instagram:
   #youtube-square:
