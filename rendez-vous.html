@@ -1,0 +1,28 @@
+---
+layout: page
+title: Rendez-vous en ligne.
+subtitle: Ici vous pourrez partager des documents et vos écrans.
+assets:
+  - script:
+      type: text/javascript
+      src: https://togetherjs.com/togetherjs-min.js
+---
+<script>
+var TogetherJSConfig_siteName = "Tréville";
+var TogetherJSConfig_toolName = "RDV en ligne à avec";
+// var TogetherJSConfig_hubBase =
+// var TogetherJSConfig_cloneClicks = ".tab"
+var TogetherJSConfig_findRoom = "le_rdv";
+// var TogetherJSConfig_suppressJoinConfirmation = true;
+var TogetherJSConfig_suppressInvite = true;
+</script>
+
+<ul class="actions">
+  <li>
+    <button id="start-togetherjs" type="button"
+     onclick="TogetherJS(this); return false"
+     data-end-togetherjs-html="Quitter la réunion">
+      Rejoindre la réunion
+    </button>
+  </li>
+</ul>

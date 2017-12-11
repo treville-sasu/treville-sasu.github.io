@@ -7,3 +7,15 @@
 <!--[if lte IE 8]><script src="{{ "/js/ie/respond.min.js" | prepend: site.baseurl }}"></script><![endif]-->
 <script src="{{ "/js/main.js" | prepend: site.baseurl }}"></script>
 <script src="{{ "/js/treville.js" | prepend: site.baseurl }}"></script>
+
+{%- for item in page.assets %}
+{%- for asset in item %}
+<{{ asset[0] }}
+  {%- for attr in asset[1] %} {{ attr[0] }}="{{ attr[1] }}"
+  {%- endfor -%}
+
+  {%- if asset[0] == "link" %} />
+  {%- else %}></{{ asset[0] }}>
+  {%- endif -%}
+{%- endfor -%}
+{% endfor %}
