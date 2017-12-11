@@ -23,9 +23,9 @@ let version = '0.6.2';
 self.addEventListener('install', e => {
   let timeStamp = Date.now();
   e.waitUntil(
-    caches.open('airhorner').then(cache => {
+    caches.open('treville.fr').then(cache => {
       return cache.addAll([
-        `/`,
+        // `/`,
         // `/index.html`,
         `/css/main.css`,
         `/css/treville.css`,
