@@ -6,7 +6,9 @@
   <!--[if lte IE 8]><script src="{{ "/js/ie/html5shiv.js" | prepend: site.baseurl }}"></script><![endif]-->
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Jim+Nightshade" />
   <link rel="stylesheet" href="{{ "/css/treville.css" | prepend: site.baseurl }}" />
+
   <!--[if lte IE 8]><link rel="stylesheet" href="{{ "/css/ie8.css" | prepend: site.baseurl }}" /><![endif]-->
   <!--[if lte IE 9]><link rel="stylesheet" href="{{ "/css/ie9.css" | prepend: site.baseurl }}" /><![endif]-->
 
@@ -20,4 +22,15 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
+  {%- for tag in page.assets %}
+  {%- for asset in tag[1] %}
+  <{{ tag[0] }}
+    {%- for attr in asset %} {{ attr[0] }}="{{ attr[1] }}"
+    {%- endfor -%}
+
+    {%- if tag[0] == "link" %} />
+    {%- else %}></{{ tag[0] }}>
+    {%- endif -%}
+  {%- endfor -%}
+  {% endfor %}
 </head>

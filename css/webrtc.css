@@ -1,0 +1,139 @@
+
+#PeersContainer {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+#PeersContainer *:last-child:nth-child(2) {
+  display: block;
+}
+
+.placeholder {
+  text-align: center;
+  color: rgba(255, 255, 255, 1);
+  display: none;
+}
+
+.placeholder .md-spin {
+  font-size: 25vmin;
+  line-height: 1.2em;
+}
+
+.placeholder, .videoContainer {
+  position: relative;
+  height: 500px;
+  padding: 0;
+  background-color:  #2e3842;
+  overflow: hidden;
+  /* z-index: 1 */
+}
+
+.videoContainer::before {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -moz-font-feature-settings: 'liga';
+  -moz-osx-font-smoothing: grayscale;
+
+  content: "person";
+  font-size: 60vmin;
+  color: rgba(255, 255, 255, 1);
+
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -45%);
+  /* z-index: 2 */
+}
+
+.videoContainer.fullscreen {
+  grid-column-start: 1;
+  grid-column-end: -1;
+}
+
+.videoContainer video {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  /* z-index: 3 */
+}
+
+
+.videoContainer video:only-of-type {
+  width: 100%;
+  height: 100%;
+}
+
+/* .videoContainer video:nth-of-type(2) {
+  object-fit: scale-down;
+  width: 40%;
+  height: 40%;
+  position: absolute;
+  bottom: 2em;
+  right: 1em;
+  z-index: 2;
+} */
+
+.videoContainer .status {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  font-size: 5vmin;
+  /* z-index: 3 */
+}
+
+.videoContainer .actions {
+  display: none;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 5px;
+  font-size: 15vmin;
+  /* z-index: 3 */
+}
+
+.videoContainer .actions i[data-content] {
+  cursor: pointer;
+}
+
+.videoContainer:hover .actions {
+  display: block;
+}
+
+/*
+#localVideo {
+  border: 1px grey solid;
+  background: url(images/person.svg) no-repeat center;
+  height: 150px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+} */
+
+/* #localVideo:hover {
+  height: auto;
+} */
+
+/*
+#localContainer {
+  position: relative;
+  z-index: 0;
+} */
+
+/*
+#remotesContainer {
+  border: 1px grey solid;
+  position: relative;
+  z-index: 0;
+} */

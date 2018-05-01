@@ -1,28 +1,152 @@
 ---
 layout: page
 title: Rendez-vous en ligne.
-subtitle: Ici vous pourrez partager des documents et vos écrans.
+subtitle: Partager des documents et vos écrans.
 assets:
-  - script:
-      type: text/javascript
-      src: https://togetherjs.com/togetherjs-min.js
+  script:
+    - type: text/javascript
+      src: https://simplewebrtc.com/latest-v2.js
+    - type: text/javascript
+      src: js/webrtc.js
+    - type: text/javascript
+      src: js/webrtc-gui.js
+  link:
+    - rel: stylesheet
+      href: css/webrtc.css
+    - rel: stylesheet
+      href: https://fonts.googleapis.com/icon?family=Material+Icons
 ---
-<script>
-var TogetherJSConfig_siteName = "Tréville";
-var TogetherJSConfig_toolName = "RDV en ligne à avec";
-// var TogetherJSConfig_hubBase =
-// var TogetherJSConfig_cloneClicks = ".tab"
-var TogetherJSConfig_findRoom = "le_rdv";
-// var TogetherJSConfig_suppressJoinConfirmation = true;
-var TogetherJSConfig_suppressInvite = true;
-</script>
+<section id="create" class="wrapper">
+  <h2 id="noRoomName">Rejoindre une réunion</h2>
+  <form method="get">
+    <fieldset>
+      <legend>Identifiez-vous s'il vous plait</legend>
+      <input type="text" id="roomName" name="room" placeholder="Quel est le nom de la réunion ?">
+      <input type="text" id="nickName" name="nick" placeholder="Quel est votre nom ?">
+    </fieldset>
+    <fieldset>
+      <legend>Que partager avec les autres participants ?</legend>
+      <input type="checkbox" id="audio" name="with" value="audio" checked>
+      <label for="audio">Le microphone</label>
+      <input type="checkbox" id="video" name="with" value="video" checked>
+      <label for="video">La caméra</label>
+    </fieldset>
+    <button type="submit" class="button special icon"><i class="material-icons md-32">launch</i>Démarrer</button>
+  </form>
+</section>
 
-<ul class="actions">
-  <li>
-    <button id="start-togetherjs" type="button"
-     onclick="TogetherJS(this); return false"
-     data-end-togetherjs-html="Quitter la réunion">
-      Rejoindre la réunion
-    </button>
-  </li>
-</ul>
+<section id="room" class="wrapper" style="display: none;">
+  <div class="inner">
+    <h2>Bienvenue</h2>
+    <h3 data-content='roomname'>Nouvelle Réunion</h2>
+      <div class="row" id="videos">
+        <div id="PeersContainer" class="gridContainer">
+          <div id="local" class="videoContainer">
+            <video id="localVideo">
+              <i class="material-icons md-light">system_update_alt</i> Votre navigateur est trop vieux, faite une mise à jour pour utiliser ce service.
+            </video>
+            <div class="status">
+              <span data-content="nickname">nickname</span>
+              <i class="material-icons md-light md-inactive" data-content="connection">network_check</i>
+              <i class="material-icons md-light md-inactive" data-content="volume">record_voice_over</i>
+            </div>
+            <div class="actions">
+              <i class="material-icons md-light md-inactive" data-content="camera">videocam</i>
+              <i class="material-icons md-light md-inactive" data-content="mic">mic_off</i>
+              <i class="material-icons md-light md-inactive" data-content="screen_share">screen_share</i>
+            </div>
+          </div>
+          <div class="placeholder">
+            <i class="material-icons md-spin">hourglass_empty</i>
+            <br />
+            En attente d'un interlocteur.
+            Envoyez lui l'URL courante pour qu'il se connecte.
+          </div>
+        </div>
+      </div>
+      <div class="row" style="display:none;">
+        <div id="files">
+          <div class="actions">
+            <i class="material-icons md-64">cloud_upload</i>
+            <i class="material-icons md-64">cloud_download</i>
+            <i class="material-icons md-64">attach_file</i>
+          </div>
+        </div>
+        <div id="connectionStatus">
+        </div>
+      </div>
+  </div>
+</section>
+
+<section id="reference" class="wrapper" style="display: none;">
+  <div class="inner">
+    <h2 id="roomName">https://material.io/icons/</h2>
+  <div>
+    <span>Normal</span>
+    <i class="material-icons md-64">screen_share</i>
+    <i class="material-icons md-64 md-inactive">screen_share</i>
+  </div>
+  <div>
+    <span>Normal</span>
+    <i class="material-icons md-64 md-dark">screen_share</i>
+    <i class="material-icons md-64 md-dark md-inactive">screen_share</i>
+  </div>
+  <div style="background-color: #2e3842;">
+    <span style=" color: rgba(255, 255, 255, 1);">Light</span>
+    <i class="material-icons md-64 md-light">screen_share</i>
+  <i class="material-icons md-64 md-light md-inactive">screen_share</i>
+  </div>
+  <div>
+    <i class="material-icons md-64">view_carousel</i>
+    <i class="material-icons md-64">view_module</i>
+    <i class="material-icons md-64">schedule</i>
+    <i class="material-icons md-64">settings_input_svideo</i>
+    <i class="material-icons md-64">power_settings_new</i>
+    <i class="material-icons md-64">close</i>
+    <i class="material-icons md-64">view_headline</i>
+    <i class="material-icons md-64">arrow_downward</i>
+  </div>
+  <div>
+    <i class="material-icons md-64">camera</i>
+    <i class="material-icons md-64">camera_alt</i>
+    <i class="material-icons md-64">monochrome_photos</i>
+    <i class="material-icons md-64">camera_enhance</i>
+    <i class="material-icons md-64">camera_front</i>
+    <i class="material-icons md-64">camera_rear</i>
+    <i class="material-icons md-64">switch_camera</i>
+  </div>
+  <div>
+    <i class="material-icons md-64">video_call</i>
+    <i class="material-icons md-64">visibility</i>
+    <i class="material-icons md-64">visibility_off</i>
+    <i class="material-icons md-64">fullscreen</i>
+    <i class="material-icons md-64">fullscreen_exit</i>
+    <i class="material-icons md-64">screen_share</i>
+    <i class="material-icons md-64">stop_screen_share</i>
+  </div>
+  <div>
+    <i class="material-icons md-64">chat</i>
+    <i class="material-icons md-64">mic</i>
+    <i class="material-icons md-64">mic_none</i>
+    <i class="material-icons md-64">mic_off</i>
+    <i class="material-icons md-64">volume_off</i>
+    <i class="material-icons md-64">volume_mute</i>
+    <i class="material-icons md-64">volume_up</i>
+  </div>
+  <div>
+    <i class="material-icons md-64">cloud_upload</i>
+    <i class="material-icons md-64">cloud_download</i>
+    <i class="material-icons md-64">attach_file</i>
+  </div>
+  <div>
+    <i class="material-icons md-64">bubble_chart</i>
+    <i class="material-icons md-64">settings</i>
+    <i class="material-icons md-64">mode_edit</i>
+    <i class="material-icons md-64">playlist_play</i>
+    <i class="material-icons md-64">euro_symbol</i>
+    <i class="material-icons md-64">build</i>
+    <i class="material-icons md-64">assignment</i>
+    <i class="material-icons md-64">code</i>
+  </div>
+  </div>
+</section>
